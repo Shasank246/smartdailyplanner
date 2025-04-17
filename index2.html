@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Daily Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="mode.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calendar-check"></i> Smart Daily Planner</h1>
+            <p>Organize your day efficiently</p>
+        </header>
+
+        <div class="main-content">
+            <section class="task-section">
+                <div class="card">
+                    <h2>Add New Task</h2>
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <label>Task Name</label>
+                            <input type="text" id="taskName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duration (minutes)</label>
+                            <input type="number" id="taskDuration" min="5" value="30" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Priority Level</label>
+                            <select id="taskPriority" required>
+                                <option value="urgent">Urgent - Must do today</option>
+                                <option value="important">Important - Time sensitive</option>
+                                <option value="normal">Normal - Regular task</option>
+                                <option value="flexible">Flexible - Can reschedule</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Time</label>
+                            <select id="preferredTime">
+                                <option value="">No Preference</option>
+                                <option value="morning">Morning (9AM - 12PM)</option>
+                                <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                                <option value="evening">Evening (5PM - 8PM)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn primary">Add Task</button>
+                    </form>
+                </div>
+
+                <div class="card task-list">
+                    <h2>Task List</h2>
+                    <div id="taskList"></div>
+                </div>
+            </section>
+
+            <section class="schedule-section">
+                <div class="card">
+                    <h2>Daily Schedule</h2>
+                    <div class="schedule-controls">
+                        <input type="date" id="scheduleDate">
+                        <button id="generateSchedule" class="btn secondary">
+                            Generate Schedule
+                        </button>
+                    </div>
+                    <div id="scheduleDisplay"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        <span class="message"></span>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
